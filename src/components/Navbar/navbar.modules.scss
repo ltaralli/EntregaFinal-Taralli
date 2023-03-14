@@ -1,0 +1,52 @@
+
+
+.navbar{
+    font-family: 'Sono', sans-serif;
+
+    
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: wheat;
+        padding: .5rem;
+    }
+
+    &__anchor{
+        font-size: 1em;
+        padding: 0.5rem 0rem;
+        margin: 0rem .5rem;
+        border-bottom: black solid 2px;
+        display: inline-block;
+        transition: all .2s ease-in-out;
+            &:hover{
+                color: rgb(252, 140, 158);
+                border-bottom: rgb(252, 140, 158) solid 4px;
+                margin: 0 0.6rem;
+                scale: 1.1;
+            }
+    }
+
+
+    &__logo {
+        width: 75px;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+            &:hover{
+                scale: 1.05;
+            }
+    }
+
+
+    &__item {
+        display: inline-block;
+    }
+
+
+    &__toggles{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
