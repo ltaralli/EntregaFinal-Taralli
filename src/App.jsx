@@ -7,7 +7,7 @@ function App () {
     return (
         <div>
             <Navbar />
-            <ItemListContainer greeting={'Texto de prueba'} />
+            <ItemListContainer greeting={'Flecha Cangreja 🦀🏹'} />
         </div>
     )
         
