@@ -1,10 +1,28 @@
 import React from 'react'
 import styles from './itemListContainer.modules.scss'
+import { useEffect, useState} from "react";
+import CardProduct from '../CardProduct';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+
+  const [productos, setProductos] = useState ([])
+
+  useEffect (() => {
+
+      fetch('https://fakestoreapi.com/products/')
+      .then (response => response.json())
+      .then (data => {
+          setProductos(data)
+      })
+  }, [])
+
   return (
-    <div className='title'><p>{greeting}</p></div>
-  )
+    <section className='productContainer'>
+      {productos.map((producto) => (
+        <CardProduct key={producto.id} producto={producto} />
+    ))}
+    </section>
+  );
 }
 
 export default ItemListContainer

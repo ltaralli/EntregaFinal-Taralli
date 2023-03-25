@@ -1,8 +1,18 @@
 import React from 'react'
 import styles from './navbar.modules.scss'
 import CartWidget from '../CartWidget';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+  
+  const activeStyle = {
+    color: "rgb(252, 140, 158)"
+  }
+  
+  const notActiveStyle = {
+    color: "black",
+  }
+
   return (
     
     <header className='navbar'>
@@ -12,10 +22,10 @@ const Navbar = () => {
       </div>
      <div className='navbar__toggles'>
         <ul className='navbar__list'>
-          <li className='navbar__item'><a className='navbar__anchor' href="">Productos</a></li>
-          <li className='navbar__item'><a className='navbar__anchor' href="">Quienes Somos</a></li>
-          <li className='navbar__item'><a className='navbar__anchor' href="">FAQ</a> </li>
-          <li className='navbar__item'><a className='navbar__anchor' href="">Contacto</a> </li>
+          <NavLink to="/" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className='navbar__anchor'>Productos</p> </NavLink>
+          <NavLink to="/QuienesSomos" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className='navbar__anchor'>Quienes Somos</p> </NavLink>
+          <NavLink to="/FAQ" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className='navbar__anchor'>FAQ</p> </NavLink>
+          <NavLink to="/Contacto" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className='navbar__anchor'>Contacto</p> </NavLink>
         </ul>
         <div>
           <CartWidget />
