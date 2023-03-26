@@ -10,6 +10,8 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const {id} = useParams();
 
+
+
   const getProducto = async () => {
   
     try {
@@ -17,10 +19,15 @@ const ItemDetailContainer = () => {
       const data = await response.json();
       setProducto(data);
       setLoading(false)
+
     } catch (error) {
       setProducto(null)
     }
   }
+
+  const handleCategoriaClick = (categoria) => {
+    setCategoriaSeleccionada(categoria);
+  };
 
   useEffect (() => {
     getProducto();
@@ -36,21 +43,24 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div className='cardDescription__container'>
-    <figure >
-        <img className='cardDescription__img' src={producto.image} alt={producto.title} />
-    </figure>
-    <h3 className='cardDescription__title'>{producto.title}</h3>
-    <p>{producto.description}</p>
-    <p className='cardDescription__category'> {producto.category} </p>
-    <p className='cardDescription__price'>${producto.price}</p>
-    <Button variant="outlined">Añadir al carrito</Button>
-    <div className='cardDescription__footer'>
-      <p>⭐{producto.rating.rate}</p>
-      <p>disponibles: {producto.rating.count}u</p>
-    </div>
-</div>
+    <section className='cardDescription'>
+      <div className='cardDescription__container'>
+        <figure className='cardDescription__figure'>
+            <img className='cardDescription__img' src={producto.image} alt={producto.title} />
+        </figure>
+        <h3 className='cardDescription__title'>{producto.title}</h3>
+        <p className='cardDescription__description'>{producto.description}</p>
+        <p className='cardDescription__category'> {producto.category} </p>
+        <p className='cardDescription__price'>${producto.price}</p>
+        <Button variant="outlined">Añadir al carrito</Button>
+        <div className='cardDescription__footer'>
+          <p>⭐{producto.rating.rate}</p>
+          <p>disponibles: {producto.rating.count}u</p>
+        </div>
+      </div>
+   </section>  
   )
+
 }
 
 export default ItemDetailContainer

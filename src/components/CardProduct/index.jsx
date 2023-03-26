@@ -5,7 +5,7 @@ import styles from './cardProduct.modules.scss'
 
 const CardProduct = ({ producto }) => {
     return (
-        <Link to = {`item/${producto.id}`} >
+        <Link to = {`/item/${producto.id}`} >
         <div className='card__container'>
             <figure >
                 <img className='card__img' src={producto.image} alt={producto.title} />

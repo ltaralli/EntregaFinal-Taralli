@@ -18,7 +18,7 @@ const Navbar = () => {
     <header className='navbar'>
     <div className='navbar__nav'>
       <div>
-      <a className='navbar__BtnImg' href="../index.html"><img className='navbar__logo' src="../media/navbar/logo.png" alt="Logo" /></a>
+      <a className='navbar__BtnImg' href="/"><img className='navbar__logo' src="../media/navbar/logo.png" alt="Logo" /></a>
       </div>
      <div className='navbar__toggles'>
         <ul className='navbar__list'>
