@@ -1,6 +1,8 @@
 import { Button } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState, useContext } from 'react'
+import { Link, NavLink, Navigate, useParams } from 'react-router-dom'
+import ItemCount from '../ItemCount';
+
 
 
 const ItemDetail = () => {
@@ -8,8 +10,11 @@ const ItemDetail = () => {
   const [producto, setProducto] = useState ({});
   const [loading, setLoading] = useState(true)
   const {id} = useParams();
+  const [toCart, setToCart] = useState(false)
 
-
+  const onAdd = (quantity) => {
+    setToCart(true);
+  }
 
   const getProducto = async () => {
   
@@ -45,11 +50,15 @@ const ItemDetail = () => {
         <p className='cardDescription__description'>{producto.description}</p>
         <p className='cardDescription__category'> {producto.category} </p>
         <p className='cardDescription__price'>${producto.price}</p>
-        <Button variant="outlined">Añadir al carrito</Button>
+        <ItemCount stock={producto.rating.count} onAdd={onAdd} initial={1}/>
+        <Link to={'/cart'}>
+          <Button variant='outlined' size='small' disabled={!toCart}>Finalizar Compra</Button>
+        </Link>
         <div className='cardDescription__footer'>
           <p>⭐{producto.rating.rate}</p>
           <p>disponibles: {producto.rating.count}u</p>
         </div>
+        
       </div>
   )
 

@@ -36,9 +36,9 @@ const Navbar = () => {
         </div>
        <div className='navbar__toggles'>
           <ul className='navbar__list'>
-            <NavLink to="/" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)}><p className="navbar__anchor">All Products</p></NavLink>
+            <NavLink to="/" style={({isActive}) => (isActive ? activeStyle : notActiveStyle)}><p className="navbar__anchor">ALL PRODUCTS</p></NavLink>
               {categories.map((category) => (
-                <NavLink key={category} to={`/category/${category}`} style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className="navbar__anchor">{category}</p></NavLink>
+                <NavLink key={category} to={`/category/${category}`} style={({isActive}) => (isActive ? activeStyle : notActiveStyle)} ><p className="navbar__anchor">{category.toUpperCase()}</p></NavLink>
               ))}
           </ul>
           <div>
