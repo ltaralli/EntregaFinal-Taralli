@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar"
 import ItemListContainer from "./components/ItemListContainer";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import React from "react";
+import Cart from "./components/Cart"
 
 
 export const CartContext = React.createContext('');
