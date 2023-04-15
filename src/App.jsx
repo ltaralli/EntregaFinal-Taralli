@@ -1,20 +1,17 @@
 import "./app.css"
 import Navbar from "./components/Navbar"
 import ItemListContainer from "./components/ItemListContainer";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import React from "react";
 import Cart from "./components/Cart"
-
-
-export const CartContext = React.createContext('');
-
+import CartProvider from "./context/CartContext";
 
 function App () {
     return (
-        <div>
-            <Navbar />
-            <CartContext.Provider value="prod">
+        <>
+            <CartProvider>
+                <Navbar />
                 <Routes>
                     <Route path=" " element = {<Navigate to= {"/"}/>} />
                     <Route path="/" element = {<ItemListContainer/>} />
@@ -23,9 +20,8 @@ function App () {
                     <Route path="/cart" element = { <Cart/> } />
                     <Route path="404" element = {<h2>404 NOT FOUND</h2>} />
                 </Routes>
-            </CartContext.Provider>
-            
-        </div>
+            </CartProvider>
+        </>
     )
 }
 

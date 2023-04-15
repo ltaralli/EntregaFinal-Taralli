@@ -1,44 +1,45 @@
-import { Button } from '@mui/material'
+import { Button, useRadioGroup } from '@mui/material'
 import React, { useEffect, useState, useContext } from 'react'
 import { Link, NavLink, Navigate, useParams } from 'react-router-dom'
 import ItemCount from '../ItemCount';
+import { useCartContext } from '../../context/CartContext';
+import { getFirestore, doc, getDoc} from 'firebase/firestore' 
+
+const ItemDetail = ({producto}) => {
 
 
-
-const ItemDetail = () => {
-
-  const [producto, setProducto] = useState ({});
-  const [loading, setLoading] = useState(true)
-  const {id} = useParams();
   const [toCart, setToCart] = useState(false)
+  const {agregarProducto} = useCartContext();
 
-  const onAdd = (quantity) => {
-    setToCart(true);
-  }
 
-  const getProducto = async () => {
+const onAdd = (quantity) => {
+  setToCart(true);
+  agregarProducto(producto, quantity);
+}
+
+//   const getProducto = async () => {
   
-    try {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProducto(data);
-      setLoading(false)
+//     try {
+//       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+//       const data = await response.json();
+//       setProducto(data);
+//       setLoading(false)
 
-    } catch (error) {
-      setProducto(null)
-    }
-  }
-  useEffect (() => {
-    getProducto();
-}, []);
+//     } catch (error) {
+//       setProducto(null)
+//     }
+//   }
+//   useEffect (() => {
+//     getProducto();
+// }, []);
 
-  if (!producto) {
-    return <Navigate to = "/404" />;
-  }
+//   if (!producto) {
+//     return <Navigate to = "/404" />;
+//   }
   
-  if (loading){
-    return <h2>Cargando...</h2>
-  }
+//   if (loading){
+//     return <h2>Cargando...</h2>
+//   }
 
 
   return (
@@ -50,13 +51,13 @@ const ItemDetail = () => {
         <p className='cardDescription__description'>{producto.description}</p>
         <p className='cardDescription__category'> {producto.category} </p>
         <p className='cardDescription__price'>${producto.price}</p>
-        <ItemCount stock={producto.rating.count} onAdd={onAdd} initial={1}/>
+        <ItemCount stock={producto.count} onAdd={onAdd} initial={1}/>
         <Link to={'/cart'}>
           <Button variant='outlined' size='small' disabled={!toCart}>Finalizar Compra</Button>
         </Link>
         <div className='cardDescription__footer'>
-          <p>⭐{producto.rating.rate}</p>
-          <p>disponibles: {producto.rating.count}u</p>
+          <p>⭐{producto.rate}</p>
+          <p>disponibles: {producto.count}u</p>
         </div>
         
       </div>
