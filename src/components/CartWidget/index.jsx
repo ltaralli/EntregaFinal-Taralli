@@ -1,11 +1,12 @@
 
+import { NavLink } from 'react-router-dom'
 import styles from './cartWidget.modules.scss'
 
 
 const CartWidget = () => {
 
   return (
-    <div ><a href=""><img className='cartImg' src="../media/navbar/iconCart.png" alt="" /></a></div>
+    <NavLink to='/cart' ><img className='cartImg' src="../media/navbar/iconCart.png" alt="" /></NavLink>
   )
 }
 

@@ -9,8 +9,19 @@ const CartProvider = ( {children} ) => {
   const [cart, setCart] = useState([]);
   const enCarrito = (id) => cart.find(product => product.id === id) ? true : false;
   const borrarCarrito = () => setCart([]);
-  const eliminarProducto = (id) => setCart(cart.filter(product => product.id === !id));
+  const eliminarProducto = (id) =>
+		setCart(cart.filter((product) => product.id !== id));
   
+  const precioTotal = () => {
+		return cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+	};
+
+	const productosTotal = () =>
+		cart.reduce(
+			(acumulador, productoActual) => acumulador + productoActual.quantity,
+			0,
+		);
+
   const agregarProducto = (item, quantity) => {
     
     if (enCarrito(item.id)) {setCart(cart.map(product => {
@@ -23,7 +34,7 @@ const CartProvider = ( {children} ) => {
 
   
     return (
-    <CartContext.Provider value={ { agregarProducto, enCarrito, borrarCarrito, eliminarProducto } }>
+    <CartContext.Provider value={ { agregarProducto, enCarrito, borrarCarrito, eliminarProducto, precioTotal, productosTotal, cart } }>
         {children}
     </CartContext.Provider>
   )
