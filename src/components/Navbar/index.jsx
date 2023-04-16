@@ -3,6 +3,8 @@ import styles from './navbar.modules.scss'
 import CartWidget from '../CartWidget';
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { collection, getDocs, getFirestore} from 'firebase/firestore';
+
 
 const Navbar = () => {
   const [categories, setCategories] = useState([]);
@@ -11,9 +13,12 @@ const Navbar = () => {
   
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await fetch("https://fakestoreapi.com/products/categories");
-      const data = await response.json();
-      setCategories(data);
+      const db = getFirestore();
+      const productsRef = collection(db, 'products');
+      const productsSnapshot = await getDocs(productsRef);
+      const allCategories = new Set();
+      productsSnapshot.forEach(doc => allCategories.add(doc.data().category));
+      setCategories(Array.from(allCategories));
     };
     fetchCategories();
   }, []);
