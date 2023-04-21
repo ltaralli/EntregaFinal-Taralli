@@ -1,0 +1,43 @@
+.container{
+    background-color: #f3f1ef;
+    margin-bottom: 3rem ;
+    min-height: 91vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart__container{
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+.cart__total{
+    margin: 0 1rem;
+    font-size: 2em;
+    align-self: flex-end;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.cart__btn{ 
+   margin: 0 1rem;
+}
+
+.cart__footer{
+    display: flex;
+    margin-top: 2rem;
+    padding: 0 .5rem;
+    align-self: flex-end;
+    align-items: center;
+}
+
+.cart__title{
+    font-family: 'Quicksand', sans-serif;
+    margin: 2rem;
+    font-size: 2em;
+}

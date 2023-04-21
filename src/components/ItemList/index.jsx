@@ -1,6 +1,4 @@
-import { useEffect, useState} from "react";
 import CardProduct from '../CardProduct';
-import { useParams } from "react-router-dom";
 
 function ItemList({productos}) {
   

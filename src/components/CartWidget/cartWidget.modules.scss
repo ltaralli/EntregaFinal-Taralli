@@ -1,8 +1,22 @@
+.cartContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .cartImg{
     width: 50px;
-    margin: 0 2rem ;
+    margin: 0 .8rem 0 2rem ;
     
     &:hover{
         scale: 1.04
     }
+}
+
+.cartQuantity{
+    color: black;
+    background-color: rgb(252, 140, 158);
+    padding: .2rem .5rem;
+    border-radius: 5px;
 }

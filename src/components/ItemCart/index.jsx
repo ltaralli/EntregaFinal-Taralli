@@ -1,19 +1,20 @@
 import React from 'react';
 import { useCartContext } from '../../context/CartContext';
-// import './itemCart.css';
+import styles from './itemCart.modules.scss'
+import { Button } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const ItemCart = ({ product }) => {
     const { eliminarProducto } = useCartContext();
     return (
         <div className='itemCart'>
-            <img src={product.image} alt={product.title} />
-            <div>
-                <p>Título: {product.title}</p>
-                <p>Cantidad: {product.quantity}</p>
-                <p>Precio u.: {product.price}</p>
-                <p>Subtotal: ${product.quantity * product.price}</p>
-                <button onClick={() => eliminarProducto(product.id)}>Eliminar</button>
-            </div>
+            <img className='itemCart__img' src={product.image} alt={product.title} />
+                    <p className='itemCart__title text'>{product.title.slice(0, 40)}</p>
+                    <p className='itemCart__category text'>{product.category.toUpperCase()}</p>
+                <p className='itemCart__quantity text' >{product.quantity} u</p>
+                <p className='itemCart__price text' >${product.price}</p>
+                <p className='itemCart__subtotal text' >${product.quantity * product.price}</p>
+                <Button size="small" variant="outlined" startIcon={<ClearIcon />} color="error" className='itemCart__btn' onClick={() => eliminarProducto(product.id)}> ELIMINAR </Button>
         </div>
     )
 }
