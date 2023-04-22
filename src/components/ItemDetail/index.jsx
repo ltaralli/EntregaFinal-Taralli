@@ -29,7 +29,7 @@ const onAdd = (quantity) => {
         <ItemCount stock={producto.count} onAdd={onAdd} initial={1}/>
         <Stack direction="row" justifyContent="center">
           <Link to={'/cart'}>
-            <Button  variant="contained" size='small' disabled={!cart}>Finalizar Compra</Button>
+            <Button  variant="contained" size='small' disabled={cart.length === 0}>Finalizar Compra</Button>
           </Link>
         </Stack>
         <div className='cardDescription__footer'>
