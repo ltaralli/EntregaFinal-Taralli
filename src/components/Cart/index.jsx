@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import styles from './cart.modules.scss'
 import { Check } from '@mui/icons-material';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import PageCartEmpty from '../PageCartEmpty';
 
 
 const Cart = () => {
@@ -13,9 +14,7 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <>
-        <p>No hay articulos en el carrito</p>
-      </>
+      <PageCartEmpty/>
     )
   }
   

@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router-dom'
 import styles from './ItemDetailContainer.modules.scss'
 import ItemDetail from '../ItemDetail'
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import Loading from '../Loading'
 
 
 const ItemDetailContainer = () => {
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
    }
 
    if (loading){
-     return <h2>Cargando...</h2>
+     <Loading/>
    }
 
   return (

@@ -3,6 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import ItemList from '../itemList';
 import styles from './itemListContainer.modules.scss';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import Loading from '../Loading'
 
 const ItemListContainer = () => {
 
@@ -39,7 +40,7 @@ const ItemListContainer = () => {
   }
 
   if (loading){
-    return <h2>Cargando...</h2>
+    <Loading/>
   }
 
   return (

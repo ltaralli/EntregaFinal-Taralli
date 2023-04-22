@@ -7,6 +7,8 @@ import Cart from "./components/Cart"
 import Checkout from "./components/Checkout"
 import CartProvider from "./context/CartContext";
 import "./app.css"
+import Page404 from "./components/Page404";
+import Loading from "./components/Loading";
 
 function App () {
     return (
@@ -20,7 +22,8 @@ function App () {
                     <Route path="/item/:id" element = { <ItemDetailContainer/> } />
                     <Route path="/cart" element = { <Cart/> } />
                     <Route path="/checkout" element = { <Checkout/> } />
-                    <Route path="404" element = {<h2>404 NOT FOUND</h2>} />
+                    <Route path="404" element = { <Page404/> } />
+                    <Route path="load" element = { <Loading/> } />
                 </Routes>
             </CartProvider>
         </>
