@@ -37,7 +37,7 @@ const Navbar = () => {
     <header className='navbar'>
       <div className='navbar__nav'>
         <div>
-          <NavLink className='navbar__BtnImg' to={'/'}> <img className='navbar__logo' src="../media/navbar/logo.png" alt="Logo" /> </NavLink>
+          <NavLink className='navbar__BtnImg' to={'/'}> <img className='navbar__logo' src="../media/navbar/flechaIcon.png" alt="Logo" /> </NavLink>
         </div>
        <div className='navbar__toggles'>
           <ul className='navbar__list'>
