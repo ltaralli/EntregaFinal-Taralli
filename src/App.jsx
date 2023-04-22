@@ -6,9 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart"
 import Checkout from "./components/Checkout"
 import CartProvider from "./context/CartContext";
-import "./app.css"
 import Page404 from "./components/Page404";
-import Loading from "./components/Loading";
 
 function App () {
     return (
