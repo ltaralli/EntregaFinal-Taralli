@@ -3,12 +3,12 @@ import styles from './loading.modules.scss';
 
 const Loading = () => {
   return (
-    <div class="loader">
-        <div class="loader__circle"></div>
-        <div class="loader__circle"></div>
-        <div class="loader__circle"></div>
-        <div class="loader__circle"></div>
-        <div class="loader__circle"></div>
+    <div className="loader">
+        <div className="loader__circle"></div>
+        <div className="loader__circle"></div>
+        <div className="loader__circle"></div>
+        <div className="loader__circle"></div>
+        <div className="loader__circle"></div>
     </div>
   )
 }
