@@ -13,7 +13,7 @@ const ItemCart = ({ product }) => {
                     <p className='itemCart__category text'>{product.category.toUpperCase()}</p>
                 <p className='itemCart__quantity text' >{product.quantity} u</p>
                 <p className='itemCart__price text' >${product.price}</p>
-                <p className='itemCart__subtotal text' >${product.quantity * product.price}</p>
+                <p className='itemCart__subtotal text' >${(product.quantity * product.price).toFixed(2)}</p>
                 <Button size="small" variant="outlined" startIcon={<ClearIcon />} color="error" className='itemCart__btn' onClick={() => eliminarProducto(product.id)}> ELIMINAR </Button>
         </div>
     )
