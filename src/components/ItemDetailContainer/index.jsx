@@ -28,7 +28,9 @@ const ItemDetailContainer = () => {
   }
 
     useEffect (() => {
-      getProducts();
+      setTimeout(() => {
+        getProducts();
+      }, 500);
     }, []) 
 
     if (!producto) {
@@ -36,7 +38,7 @@ const ItemDetailContainer = () => {
    }
 
    if (loading){
-     <Loading/>
+     return <Loading/>
    }
 
   return (

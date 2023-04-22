@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Stack } from '@mui/material';
 import { useEffect, useState } from "react";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
@@ -28,10 +28,12 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 
     return (
       <div>
-        <Button disabled={count <= 1} onClick={handleDecrement}>-</Button>
-        <span>{count}</span>
-        <Button disabled={count >= stock} onClick={handleIncrement}>+</Button>
-        <Button disabled={stock <= 0} onClick={handleAdd}>Agregar al carrito</Button>
+        <Stack spacing={2} pacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap" justifyContent="center" alignItems="center" alignContent="center">
+          <Button size="small"  disabled={count <= 1} onClick={handleDecrement}>-</Button>
+          <span><b>{count}</b></span>
+          <Button size="small"  disabled={count >= stock} onClick={handleIncrement}>+</Button>
+          <Button   disabled={stock <= 0} onClick={handleAdd}>Agregar al carrito</Button>
+        </Stack>
       </div>
     );
   };

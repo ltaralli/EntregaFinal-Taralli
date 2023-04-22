@@ -1,4 +1,4 @@
-import { Button} from '@mui/material'
+import { Button, Stack} from '@mui/material'
 import { useState } from 'react'
 import { Link} from 'react-router-dom'
 import ItemCount from '../ItemCount';
@@ -9,7 +9,7 @@ const ItemDetail = ({producto}) => {
 
 
   const [toCart, setToCart] = useState(false)
-  const {agregarProducto} = useCartContext();
+  const {agregarProducto, cart} = useCartContext();
 
 
 const onAdd = (quantity) => {
@@ -27,9 +27,11 @@ const onAdd = (quantity) => {
         <p className='cardDescription__category'> {producto.category} </p>
         <p className='cardDescription__price'>${producto.price}</p>
         <ItemCount stock={producto.count} onAdd={onAdd} initial={1}/>
-        <Link to={'/cart'}>
-          <Button variant='outlined' size='small' disabled={!toCart}>Finalizar Compra</Button>
-        </Link>
+        <Stack direction="row" justifyContent="center">
+          <Link to={'/cart'}>
+            <Button  variant="contained" size='small' disabled={!cart}>Finalizar Compra</Button>
+          </Link>
+        </Stack>
         <div className='cardDescription__footer'>
           <p>⭐{producto.rate}</p>
           <p>disponibles: {producto.count}u</p>

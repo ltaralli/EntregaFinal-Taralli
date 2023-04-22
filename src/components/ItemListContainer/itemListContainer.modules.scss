@@ -32,14 +32,14 @@
     }
 
     &__container{
-        max-width: 90%;
-        margin: auto;
-        margin-bottom: 2rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+            max-width: 90%;
+            margin: auto;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
     }
 }

@@ -46,8 +46,9 @@ align-items: center;
 }
 
 .img-area{
-    width: 40%;
+    max-width: 40%;
     margin: 4rem;
+    max-height: 500px ;
 }
 @keyframes easyoutelastic {
     0% {

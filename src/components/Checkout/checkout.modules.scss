@@ -1,6 +1,9 @@
 .form__container{
     background-color: #f3f1ef;
-    min-height: 92vh;
+    min-height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form{
@@ -12,10 +15,3 @@
     align-items: center;
 }
 
-
-// .formForm{
-//     height: 75%;
-//     flex-direction: column;
-//     display: flex;
-//     flex-wrap: wrap;
-// }

@@ -5,6 +5,8 @@ import { collection, addDoc, getFirestore, serverTimestamp} from 'firebase/fires
 import styles from './checkout.modules.scss'
 import Formulario from '../Formulario'
 import PageCartEmpty from '../PageCartEmpty';
+import OrderSuccessful from '../OrderSuccessful';
+import Loading from '../Loading';
 
 
 const Checkout = () => {
@@ -12,6 +14,8 @@ const Checkout = () => {
   const {cart, precioTotal, setCart} = useCartContext();
   const [isCompraRealizada, setIsCompraRealizada] = useState(false);
   const [compraId, setCompraId] = useState(null);
+  const [loading, setLoading] = useState(false)
+  
  
   const [formData, setFormData] = useState({
     name: '',
@@ -29,12 +33,16 @@ const Checkout = () => {
       formData,
     };
 
+    setLoading(true)
     addDoc(ordersCollection, nuevaOrden)
       .then(({id}) => {
         setCart([]);
         setIsCompraRealizada(true); 
         setCompraId(id);
       })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   const handleFormSubmit = (values) => {
@@ -43,7 +51,10 @@ const Checkout = () => {
 
   useEffect(() => {
     if (formData.name && formData.email && formData.emailConfirmation && formData.phone && formData.address) {
-      ordenPush();
+      setTimeout(() => {
+        ordenPush();  
+      }, 2000);
+      
     }
   }, [formData]);
 
@@ -53,13 +64,13 @@ const Checkout = () => {
     total: precioTotal(),
   }
 
+  if (loading){
+    return <Loading/>
+  }
+
   if (isCompraRealizada) {
     return (
-      <>
-        <p>Compra realizada con éxito</p>
-        <p>Tu numero de pedido es {compraId} </p>
-        <Link to='/'>Volver al inicio</Link>
-      </>
+      <OrderSuccessful compraId={compraId}/>
     )
   }
 

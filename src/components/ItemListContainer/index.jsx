@@ -31,7 +31,10 @@ const ItemListContainer = () => {
   }
 
   useEffect(() => {
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 500);
+    
   }, [categoryid]);
 
 
@@ -40,7 +43,7 @@ const ItemListContainer = () => {
   }
 
   if (loading){
-    <Loading/>
+    return <Loading/>
   }
 
   return (

@@ -23,7 +23,6 @@ function App () {
                     <Route path="/cart" element = { <Cart/> } />
                     <Route path="/checkout" element = { <Checkout/> } />
                     <Route path="404" element = { <Page404/> } />
-                    <Route path="load" element = { <Loading/> } />
                 </Routes>
             </CartProvider>
         </>
