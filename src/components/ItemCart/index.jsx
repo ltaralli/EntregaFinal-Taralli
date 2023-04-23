@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCartContext } from '../../context/CartContext';
 import styles from './itemCart.modules.scss'
 import { Button } from '@mui/material';

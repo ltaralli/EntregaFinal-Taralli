@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
 import { collection, addDoc, getFirestore, serverTimestamp} from 'firebase/firestore';
 import styles from './checkout.modules.scss'

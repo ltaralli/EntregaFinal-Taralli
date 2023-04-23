@@ -1,5 +1,5 @@
+import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
 
 const PageCartEmpty = () => {
   return (

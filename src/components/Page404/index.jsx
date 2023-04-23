@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './page404.modules.scss';
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 
 const Page404 = () => {
   return (
