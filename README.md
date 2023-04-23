@@ -42,4 +42,4 @@ npm run dev
 
 ## Agradecimientos
 
-Agradezco especialmente al profesor **Diego Jofre**, a los tutores del curso **Flavio Gastón Dante Di Pietro**, **Facundo Marino** y **Bruno Martín Pedraza** y a mis compañeros de clase por su apoyo y consejos durante el desarrollo de este curso y el proyecto final.
+Agradecimientos al profesor **Diego Jofre**, a los tutores del curso **Flavio Gastón Dante Di Pietro**, **Facundo Marino** y **Bruno Martín Pedraza** y a mis compañeros de clase por su apoyo y consejos durante el desarrollo de este curso y el proyecto final.
